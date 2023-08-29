@@ -1,4 +1,5 @@
 from typing import Optional
+import streamlit as st
 
 from dotenv import load_dotenv
 from pydantic_settings import BaseSettings
@@ -14,7 +15,8 @@ class CodeInterpreterAPISettings(BaseSettings):
 
     VERBOSE: bool = False
 
-    OPENAI_API_KEY: Optional[str] = None
+    OPENAI_API_KEY: Optional[str] = st.secrets["open_ai_key"]
+
     CODEBOX_API_KEY: Optional[str] = None
 
     HISTORY_BACKEND: Optional[str] = None
